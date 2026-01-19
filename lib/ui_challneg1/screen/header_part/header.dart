@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HeaderSection extends StatefulWidget {
   @override
@@ -39,7 +40,7 @@ class _HeaderSectionState extends State<HeaderSection> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -56,11 +57,11 @@ class _HeaderSectionState extends State<HeaderSection> {
                             SizedBox(width: 3),
                             Text(
                               'Home',
-                              style: TextStyle(
+                              style: GoogleFonts.poppins(textStyle: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
-                              ),
+                              ),)
                             ),
                           ],
                         ),
@@ -68,10 +69,10 @@ class _HeaderSectionState extends State<HeaderSection> {
                           children: [
                             Text(
                               ' Sector 45, Noida 201303',
-                              style: TextStyle(
-                                color: Colors.white70,
+                              style: GoogleFonts.poppins(textStyle: TextStyle(
+                                color: Colors.white,
                                 fontSize: 12,
-                              ),
+                              ),)
                             ),
                             SizedBox(width: 5),
                             Icon(Icons.arrow_drop_down_sharp, size: 14, color: Colors.white),
@@ -104,53 +105,64 @@ class _HeaderSectionState extends State<HeaderSection> {
                 SizedBox(height: 25),
 
                 // Search Bar (tumhara existing)
-                Container(
-                  height: 40,
-                  width: 354,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(color: Colors.black12, blurRadius: 10, offset: Offset(0, 5)),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      children: [
-                        Icon(Icons.search, color: Colors.grey[600]),
-                        SizedBox(width: 10),
-                        Text("Search for 'Services'", style: TextStyle(color: Colors.grey[600], fontSize: 16)),
-                      ],
-                    ),
-                  ),
+              Container(
+                height: 50,
+                width: 354,
+                padding: EdgeInsets.symmetric(horizontal: 10), // keep horizontal padding
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(color: Colors.black12, blurRadius: 10, offset: Offset(0, 5)),
+                  ],
                 ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // centers horizontally
+                  crossAxisAlignment: CrossAxisAlignment.center, // centers vertically
+                  children: [
+                    Icon(Icons.search, color: Colors.grey[600]), SizedBox(width: 10),
+                    Expanded( // instead of Expanded, so it doesn’t push everything left
+                      child: TextField(
+                        textAlign: TextAlign.start, // centers text inside the field
+                        decoration: InputDecoration(
+                          hintText: "Search for 'Services'",
+                          hintStyle: GoogleFonts.poppins(
+                            textStyle: TextStyle(color: Colors.grey[600], fontSize: 16,fontWeight: .w400),
+                          ),
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
                 SizedBox(height: 25),
 
                 // 👇 SCROLLABLE FESTIVE SECTION
                 SingleChildScrollView(
                   controller: _scrollController,
                   scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.only(right: 20),
+                  padding: EdgeInsets.only(right: 8),
                   child: Row(
                     mainAxisSize: MainAxisSize.min, // important for scroll
                     children: [
                       _buildOfferCard('ENDS IN 12:24', 'Festive packages upto 25% off', 'Extra 25% for new users*'),
                       _buildOfferCard('ENDS IN 2:15', 'Diwali Cleaning Special', '50% off on Deep Cleaning'),
                       _buildOfferCard('STARTS IN 5 days', 'New Year Deep Clean', 'Book now & get free polish!'),
+                      _buildOfferCard('STARTS IN 5 days', 'New Year Deep Clean', 'Book now & get free polish!'),
                     ],
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(3, (index) => GestureDetector(
+                  children: List.generate(4, (index) => GestureDetector(
                     onTap: () => _scrollController.animateTo(
                         index * 250.0,
                         duration: Duration(milliseconds: 300),
                         curve: Curves.easeInOut
                     ),
                     child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      margin: EdgeInsets.symmetric(horizontal: 3),
                       width: 8, height: 8,  // 👈 FIXED SIZE - SABKE Liye same
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(
@@ -190,11 +202,11 @@ class _HeaderSectionState extends State<HeaderSection> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(timer, style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+          Text(timer, style:GoogleFonts.poppins(textStyle:TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold) ) ),
           SizedBox(height: 8),
-          Text(title, style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold, height: 1.1)),
-          SizedBox(height: 8),
-          Text(subtitle, style: TextStyle(color: Colors.white70, fontSize: 11)),
+          Text(title, style: GoogleFonts.poppins(textStyle:  TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold, height: 1.1))),
+          SizedBox(height: 7),
+          Text(subtitle, style: GoogleFonts.poppins(textStyle:  TextStyle(color: Colors.white, fontSize: 13))),
           SizedBox(height: 8),
           Container(
             width: 94,
@@ -205,7 +217,7 @@ class _HeaderSectionState extends State<HeaderSection> {
               boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10, offset: Offset(0, 5))],
             ),
             child: Center(
-              child: Text('Book Now', style: TextStyle(color: Color(0xFF065955), fontWeight: FontWeight.bold, fontSize: 16)),
+              child: Text('Book Now', style: GoogleFonts.poppins(textStyle:  TextStyle(color: Color(0xFF065955), fontWeight: FontWeight.bold, fontSize: 14))),
             ),
           ),
           SizedBox(height: 10),

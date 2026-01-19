@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.Uichallenge2,
+        initialRoute: AppRoutes.Uichallenge1,
         routes: AppRoutes.routes,
     ),
   );

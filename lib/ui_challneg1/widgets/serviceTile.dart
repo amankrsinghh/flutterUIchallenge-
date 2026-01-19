@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 class ServiceTile extends StatelessWidget {
   final String title;
   final String imagepath;
@@ -14,7 +15,8 @@ class ServiceTile extends StatelessWidget {
           height: 102,
           width: 102,
           child: Card(
-            elevation: 3,
+            color: Color(0xFFF7F7F7),
+          elevation: 0,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             child: Padding(
               padding: EdgeInsets.all(7),
@@ -26,7 +28,7 @@ class ServiceTile extends StatelessWidget {
         Text(
           title,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+          style: GoogleFonts.poppins(textStyle:TextStyle(fontSize: 14, fontWeight: FontWeight.w300 )),
         ),
       ],
     );

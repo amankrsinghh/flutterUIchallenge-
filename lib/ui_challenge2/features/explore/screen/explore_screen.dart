@@ -19,6 +19,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           child: Container(
             padding: EdgeInsets.all(20),
             child: Column(
+
               //// header part //////
               children: [
                 Row(
@@ -57,7 +58,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   ],
                 ),
 
+
+
                 ////////////// search box //////////////////////////
+
+
                 SizedBox(height: 30),
                 Container(
                   padding: EdgeInsets.only(

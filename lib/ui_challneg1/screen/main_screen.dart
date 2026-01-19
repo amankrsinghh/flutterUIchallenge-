@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return
       Scaffold(
+        backgroundColor: Colors.white,
         appBar: PreferredSize(preferredSize: Size.fromHeight(0), child:
         AppBar(
           backgroundColor:  Color(0xFF065955),
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 // booking card scroll view
                 SingleChildScrollView(
-                  padding:  EdgeInsets.only(left: 20),
+                  padding:  EdgeInsets.only(left: 10,bottom: 10),
                   scrollDirection: Axis.horizontal,
                   child:Row(
                     children: [
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisCount: 3,
                     crossAxisSpacing: 17,
                     mainAxisSpacing: 25,
-                    childAspectRatio: 0.75, // controls tile height vs width
+                    childAspectRatio: 0.70, // controls tile height vs width
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     children: [
@@ -82,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Seperation(title: "Recently Viewed", subtitle: "View All"),
                 SizedBox(height: 20),
                 SingleChildScrollView(
-                  padding:  EdgeInsets.only(left: 20),
+                  padding:  EdgeInsets.only(left: 10,bottom: 5),
                   scrollDirection: Axis.horizontal,
                   child:Row(
                     children: [
@@ -102,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Seperation(title: "Nearby Maids", subtitle: "View All"),
                 SizedBox(height: 20),
                 SingleChildScrollView(
-                  padding:  EdgeInsets.only(left: 20),
+                  padding:  EdgeInsets.only(left: 10,bottom: 5),
                   scrollDirection: Axis.horizontal,
                   child:Row(
                     children: [
@@ -124,46 +125,84 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
 
+        // bottomNavigationBar: Padding(
+        //   padding: const EdgeInsets.only(bottom: 10), // lift from bottom
+        //   child: ClipRRect(
+        //     borderRadius: BorderRadius.circular(70), // curved corners
+        //     child: Container(
+        //       height: 90,
+        //       width: 354,
+        //       margin: const EdgeInsets.symmetric(horizontal: 10), // side spacing
+        //       decoration: BoxDecoration(
+        //         color: Colors.white,
+        //         boxShadow: [
+        //           BoxShadow(
+        //             color: Colors.black.withOpacity(0.1),
+        //             blurRadius: 10,
+        //             offset: Offset(0,0), // shadow upwards
+        //           ),
+        //         ],
+        //       ),
+        //       child: BottomNavigationBar(
+        //         currentIndex: 0,
+        //         onTap: (index) {
+        //           // handle tab change
+        //         },
+        //         backgroundColor: Colors.transparent,
+        //         selectedItemColor: Colors.black,
+        //         unselectedItemColor: Colors.grey,
+        //         showSelectedLabels: false,
+        //         showUnselectedLabels: false,
+        //         elevation: 0,
+        //         items:  [
+        //           BottomNavigationBarItem(
+        //             icon: Image.asset("assets/icons/home.png",height: 56,width: 56,),
+        //             label: 'Home',
+        //           ),
+        //           BottomNavigationBarItem(
+        //             icon: Image.asset("assets/icons/analysis.png",height: 56,width: 56,),
+        //             label: 'Analysis',
+        //           ),
+        //           BottomNavigationBarItem(
+        //             icon: Image.asset("assets/icons/profile.png",height: 56,width: 56,),
+        //             label: 'Profile',
+        //           ),
+        //         ],
+        //       ),
+        //     ),
+        //   ),
+        // ),
+
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.only(bottom: 25), // lift from bottom
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(70), // curved corners
-            child: Container(
+          padding: const EdgeInsets.only(left: 10,bottom: 20,right: 10),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            color: Colors.white,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            child: SizedBox(
               height: 90,
-              width: 354,
-              margin: const EdgeInsets.symmetric(horizontal: 16), // side spacing
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: Offset(0, -2), // shadow upwards
-                  ),
-                ],
-              ),
               child: BottomNavigationBar(
                 currentIndex: 0,
-                onTap: (index) {
-                  // handle tab change
-                },
+                onTap: (index) {},
                 backgroundColor: Colors.transparent,
                 selectedItemColor: Colors.black,
                 unselectedItemColor: Colors.grey,
                 showSelectedLabels: false,
                 showUnselectedLabels: false,
                 elevation: 0,
-                items:  [
+                items: [
                   BottomNavigationBarItem(
-                    icon: Image.asset("assets/icons/home.png",height: 56,width: 56,),
+                    icon: Image.asset("assets/icons/home.png", height: 20, width: 20),
                     label: 'Home',
                   ),
                   BottomNavigationBarItem(
-                    icon: Image.asset("assets/icons/analysis.png",height: 56,width: 56,),
+                    icon: Image.asset("assets/icons/analysis.png", height: 20, width: 20),
                     label: 'Analysis',
                   ),
                   BottomNavigationBarItem(
-                    icon: Image.asset("assets/icons/profile.png",height: 56,width: 56,),
+                    icon: Image.asset("assets/icons/profile.png", height: 20, width: 20),
                     label: 'Profile',
                   ),
                 ],
@@ -171,7 +210,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-
       );
 
   }
