@@ -173,43 +173,47 @@ class _HomeScreenState extends State<HomeScreen> {
         //   ),
         // ),
 
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.only(left: 10,bottom: 20,right: 10),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            color: Colors.white,
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: SizedBox(
-              height: 90,
-              child: BottomNavigationBar(
-                currentIndex: 0,
-                onTap: (index) {},
-                backgroundColor: Colors.transparent,
-                selectedItemColor: Colors.black,
-                unselectedItemColor: Colors.grey,
-                showSelectedLabels: false,
-                showUnselectedLabels: false,
-                elevation: 0,
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Image.asset("assets/icons/home.png", height: 20, width: 20),
-                    label: 'Home',
+
+          bottomNavigationBar: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                color: Colors.white,
+                child: SizedBox(
+                  height: 80, // reduced height to avoid overflow
+                  child: BottomNavigationBar(
+                    currentIndex: 0,
+                    onTap: (index) {
+                      // handle tab change
+                    },
+                    backgroundColor: Colors.transparent,
+                    selectedItemColor: Colors.black,
+                    unselectedItemColor: Colors.grey,
+                    showSelectedLabels: false,
+                    showUnselectedLabels: false,
+                    elevation: 0,
+                    items: [
+                      BottomNavigationBarItem(
+                        icon: Image.asset("assets/icons/home.png", height: 40, width: 40),
+                        label: 'Home',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Image.asset("assets/icons/analysis.png", height: 40, width: 40),
+                        label: 'Analysis',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Image.asset("assets/icons/profile.png", height: 40, width: 40),
+                        label: 'Profile',
+                      ),
+                    ],
                   ),
-                  BottomNavigationBarItem(
-                    icon: Image.asset("assets/icons/analysis.png", height: 20, width: 20),
-                    label: 'Analysis',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Image.asset("assets/icons/profile.png", height: 20, width: 20),
-                    label: 'Profile',
-                  ),
-                ],
+                ),
               ),
             ),
-          ),
-        ),
+          )
       );
 
   }
